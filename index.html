@@ -1,23 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Candy Slide</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js"></script>
 </head>
-
 <body>
-    <div id="state">
-        <div class="container">
-            <h1>Slide game | <span id="points">0</span></h1>
+    <div id="bg-fx"></div>
+
+    <!-- HOME SCREEN -->
+    <div id="home">
+        <h1 id="home-title">Candy Slide</h1>
+        <p id="home-sub">Choose a level</p>
+        <div id="level-grid"></div>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="game" class="hidden">
+        <div id="top-bar">
+            <button id="btn-back" aria-label="Back">&#9664;</button>
+            <div id="top-center">
+                <div id="top-level">Level <span id="lvl-num">1</span></div>
+                <div id="top-progress"><div id="progress-fill"></div></div>
+                <div id="top-score"><span id="score">0</span> / <span id="score-target">1500</span></div>
+            </div>
+            <div id="top-moves">
+                <div id="moves-label">Moves</div>
+                <div id="moves">25</div>
+            </div>
+        </div>
+
+        <div id="board-wrap">
+            <div id="grid"></div>
+        </div>
+
+        <div id="bottom-bar">
+            <div id="stars-bar">
+                <span class="star-s" data-i="1"></span>
+                <span class="star-s" data-i="2"></span>
+                <span class="star-s" data-i="3"></span>
+            </div>
         </div>
     </div>
-    <div class="container">
-        <div id="cells"></div>
-    </div>
-</body>
 
+    <!-- OVERLAY (level complete / out of moves) -->
+    <div id="overlay">
+        <div id="modal">
+            <div id="modal-stars">
+                <span class="star-lg" data-i="1"></span>
+                <span class="star-lg" data-i="2"></span>
+                <span class="star-lg" data-i="3"></span>
+            </div>
+            <h2 id="modal-title">Level Complete!</h2>
+            <p id="modal-score"></p>
+            <button id="modal-btn">Next Level</button>
+            <button id="modal-home" class="btn-second">Home</button>
+        </div>
+    </div>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading" class="hidden">
+        <div id="loading-candy"></div>
+        <div id="loading-text">Preparing...</div>
+    </div>
+
+    <!-- combo overlay (js‑created) -->
+</body>
 </html>
